@@ -129,4 +129,25 @@ class Gun {
 var firstGun = Gun(name: "AK", speed: 200)
 print(firstGun.bullet.caliber)
 
+//Агрегация
+/*Когда объект передается в класс в качестве параметра извне.*/
 
+class Owner {
+    var name: String
+    init(name: String) {
+        self.name = name
+    }
+}
+
+class Bike {
+    var model: String
+    var owner: Owner
+    init(model: String, owner: Owner) {
+        self.model = model
+        self.owner = owner
+    }
+}
+
+var owner = Owner(name: "Vlad")
+var bike = Bike(model: "Aist", owner: owner)
+print(bike.owner.name)
