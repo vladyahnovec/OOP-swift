@@ -57,3 +57,51 @@ var firstTeacher = Teacher(name: "Svetlana", age: 45, weight: 75, experience: 25
 firstPerson.greeting()
 firstTeacher.greeting()
 
+
+//Полиморфизм
+/*Позволяет разным объектам выполнять одни и те же действия. При этом неважно как эти типы устроены внутри и чем они различаются.*/
+
+class Animal {
+    var name: String
+    var age: Int
+    
+    init(name: String, age: Int) {
+        self.name = name
+        self.age = age
+    }
+    
+    func greeting() {
+        print("*Звук животного*")
+    }
+}
+
+class Cat : Animal {
+    override init(name: String, age: Int) {
+        super.init(name: name, age: age)
+    }
+    
+    override func greeting() {
+        print("Мяу - мяу!")
+    }
+}
+
+class Dog : Animal {
+    var breed: String
+    init(name: String, age: Int, breed: String) {
+        self.breed = breed
+        super.init(name: name, age: age)
+    }
+    
+    override func greeting() {
+        print("Гав - гав!")
+    }
+}
+
+var firstAnimal = Animal(name: "Animal", age: 10)
+firstAnimal.greeting()
+
+var firstCat = Cat(name: "Tom", age: 10)
+firstCat.greeting()
+
+var firstDog = Dog(name: "Jarry", age: 12, breed: "poodle")
+firstDog.greeting()
