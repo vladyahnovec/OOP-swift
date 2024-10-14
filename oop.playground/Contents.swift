@@ -151,3 +151,30 @@ class Bike {
 var owner = Owner(name: "Vlad")
 var bike = Bike(model: "Aist", owner: owner)
 print(bike.owner.name)
+
+//Протокол
+/*Шаблон методов / свойств по которым затем могут быть созданы классы, структуры и enum*/
+protocol Apartament {
+    var address: String { get } // можно получать свойство
+    var numberOfRooms: Int { get set} // можно получать и изменять
+    
+    func displayInfo()
+}
+
+class OneBedroomApartament: Apartament {
+    var address: String
+    
+    var numberOfRooms: Int
+    
+    init(address: String, numberOfRooms: Int) {
+        self.address = address
+        self.numberOfRooms = numberOfRooms
+    }
+    
+    func displayInfo() {
+        print(self.address, self.numberOfRooms)
+    }
+}
+
+var oneBedroom = OneBedroomApartament(address: "Oktyabrskaya", numberOfRooms: 1)
+oneBedroom.displayInfo()
