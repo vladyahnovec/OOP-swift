@@ -105,3 +105,28 @@ firstCat.greeting()
 
 var firstDog = Dog(name: "Jarry", age: 12, breed: "poodle")
 firstDog.greeting()
+
+//Композиция
+/*Когда объект одного класса инициализируется в конструкторе другого класса. При удалении */
+
+class Bullet {
+    var caliber: String
+    init(caliber: String) {
+        self.caliber = caliber
+    }
+}
+
+class Gun {
+    var name: String
+    var speed: Int
+    var bullet: Bullet = Bullet(caliber: "5.45mm")
+    init(name: String, speed: Int) {
+        self.name = name
+        self.speed = speed
+    }
+}
+
+var firstGun = Gun(name: "AK", speed: 200)
+print(firstGun.bullet.caliber)
+
+
